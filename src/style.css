@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Teko:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@500;600&family=Chakra+Petch&family=Teko:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+  @return $randomNum;
+}
+
+.txet{
+    /* font-family: 'Archivo Narrow', sans-serif; */
+  /* font-family: 'Orbitron', sans-serif; */
+  /* font-family: 'Chakra Petch', sans-serif; */
+  font-family: 'Bai Jamjuree', sans-serif;
+  /* font-family: 'Chakra Petch', sans-serif;
+  font-family: 'Teko', sans-serif; */
+}

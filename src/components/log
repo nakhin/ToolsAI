@@ -1,0 +1,91 @@
+<template>
+  <v-parallax
+     src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+   >
+ 
+ <Header/> 
+ 
+ 
+ 
+ 
+   <div class="text-center m-10">
+ 
+        <h1 class="text-4xl" style="color: #ffffff;">LOG-IN</h1>
+        <!-- <h3>{{ firstNameRules }}</h3> ການດືງຄ່າຈາກ data ອອກມາສະແດງ -->
+ 
+    
+     <v-sheet width="300" class="mx-auto">
+       <v-form fast-fail @submit.prevent>
+ 
+         <!-- Value: {{ firstName }} -->
+         <v-text-field
+           v-model="firstName"
+           prepend-inner-icon="mdi-account" 
+           
+           label="First name"
+           :rules="firstNameRules"
+         ></v-text-field>
+ 
+         <v-text-field
+         
+           v-model="password"
+           prepend-inner-icon="mdi-lock"
+           label="Password"
+           type="password"
+           :rules="passwordRules"
+         ></v-text-field>
+         <!-- <v-text-field
+             label="Prepend inner"
+             prepend-inner-icon="mdi-account"
+           ></v-text-field> -->
+         <v-btn type="submit" block class="mt-2" color="error" @click="onSubmit"
+           >Submit</v-btn
+         >
+       </v-form>
+     </v-sheet>
+   </div>
+  </v-parallax>
+ </template>
+ 
+ <script>
+ import {useRouter} from 'vue-router'
+ import Header from '../views/layouts/Header.vue';
+ const router = useRouter()
+ 
+ 
+ export default {
+     data: () => ({
+         firstName: "",
+         firstNameRules: [
+             (value) => {
+                 if (value?.length > 3)
+                     return true;
+                 return "First name must be at least 3 characters.";
+             },
+         ],
+         password: "",
+         passwordRules: [
+             (value) => {
+                 if (/[^0-9]/.test(value))
+                     return true;
+                 return "Last name can not contain digits.";
+             },
+         ],
+     }),
+     methods: {
+         onSubmit() {
+             console.log(this.firstName);
+             console.log(this.password);
+             if (this.firstName == "Nakhin" && this.password == "12345") {
+                 this.$router.push("/");
+                 //   home
+             }
+             else {
+                 alert("ລະຫັດບໍ່ຖືກຕ້ອງ...  ກະລຸນາໃສ່ລະຫັດຜ່ານໃໝ່ອີກຄັ້ງ");
+             }
+         },
+     },
+     components: { Header }
+ };
+ </script>
+ 
